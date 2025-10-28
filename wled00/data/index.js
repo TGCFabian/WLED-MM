@@ -697,6 +697,8 @@ function populateInfo(i)
 	//if (i.ver.includes("0.14.1-b")) vcn = "Fried Chicken";  // final line of "One Vision" by Queen
 	if (i.ver.includes("0.14.3-b")) vcn = "Fried Chicken";
 	if (i.ver.includes("14.5.")) vcn = "Small Step";
+	if (i.ver.includes("14.6.")) vcn = "New Light";
+	if (i.ver.includes("14.7.")) vcn = "Next Step";
 
 	cn += `v${i.ver} &nbsp;<i>"${vcn}"</i><p>(WLEDMM ${i.rel}.bin)</p><p><em>build ${i.vid}</em></p><table>
 ${urows}
@@ -1973,6 +1975,9 @@ function readState(s,command=false)
 			break;
 		case  3:
 			errstr = "Buffer locked!";
+			break;
+		case  7:
+			errstr = "No RAM for pixel buffer!";
 			break;
 		case  8:
 			errstr = "Effect RAM depleted!";
@@ -3324,6 +3329,8 @@ function genPresets()
 				}
 				addToPlaylist("All", ef.id, "ALL");
 				if(ef.name.startsWith("Y💡")) addToPlaylist("AnimARTrix", ef.id, "AM");
+				if(ef.name.startsWith("PS ")) addToPlaylist("Particle System", ef.id, "PS");
+
 				if (m.includes("1")) addToPlaylist("All 1D", ef.id, "1D");
 				if (m.includes("2")) addToPlaylist("All 2D", ef.id, "2D");
 
